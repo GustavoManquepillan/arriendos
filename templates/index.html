@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+
+{% block title %}Bienvenido a Inmobiliario{% endblock title %}
+
+{% block content %}
+<div class="container pb-4 alert alert-success text-center" role="alert" style="background-color: #eeeff4;">
+    <div class="container py-5 bg-light text-center">
+        <h1 class="display-5">¡Bienvenido a tu Portal Inmobiliario!</h1>
+        <p class="lead">Encuentra tu nuevo hogar ¡y haz tu sueño realidad!</p>
+        <hr class="my-4">
+        <p>Explora diferentes inmuebles a lo largo de todo Chile.</p>
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a type="button" class="btn btn-primary me-2" aria-current="page" href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+            {% else %}
+                <li class="nav-item me-2">
+                    
+                    <a type="button" class="btn btn-primary" aria-current="page" href="{% url 'login_url' %}">Iniciar sesión</a>
+                </li>
+                <li class="nav-item me-2 pt-3">
+                    <a type="button" class="btn btn-primary" aria-current="page" href="{% url 'register' %}">Registrarse</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+    <h1 class="text-center">Arriendos Disponibles</h1>
+    <div class="row mb-3 justify-content-center">
+        <div class="col col-3 text-center">
+            <form method="get" action="{% url 'home' %}">
+                <div class="mb-3">
+                    <select name="region" class="form-select">
+                        <option value="">Regiones</option>
+                        {% for r in regiones %}
+                            <option value="{{ r.id }}">{{ r.region }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <select name="comuna" class="form-select">
+                        <option value="">Comunas</option>
+                        {% for c in comunas %}
+                            <option value="{{ c.id }}">{{ c.comuna }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
+    </div>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4 justify-content-center">
+        {% for inmueble in inmuebles %}
+        <div class="col">
+            <div class="card mb-3">
+                <div class="row g-0">
+                    <div class="col-12 text-center">
+                        {% if inmueble.imagen_url %}
+                            <img src="{{ inmueble.imagen_url }}" class="foto-inmueble img-fluid rounded-start" alt="Imagen Inmueble">
+                        {% else %}
+                            <p>No hay imagen disponible</p>
+                        {% endif %}
+                    </div>
+                    <div class="col-12">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">{{ inmueble.nombre_inmueble }}, {{ inmueble.id_tipo_inmueble }}</h5>
+                            <p class="card-text text-center">{{ inmueble.descripcion }}</p>
+                            <ul class="list-group list-group-flush text-left">
+                                <li class="list-group-item">Direccion: {{ inmueble.direccion }}, {{ inmueble.id_comuna }}, {{ inmueble.id_region }}</li>
+                                <li class="list-group-item">Construccion: {{ inmueble.m2_construido }} m2</li>
+                                <li class="list-group-item">N° hab: {{ inmueble.numero_hab }}</li>
+                                <li class="list-group-item">N° baños: {{ inmueble.numero_banos }}</li>
+                            </ul>
+                            <div class="text-center mt-3">
+                                <a href="{% url 'contact' inmueble.id %}" class="btn btn-primary">Contactar Arrendador</a>
+                            </div>                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+
+</div>
+
+<style>
+    .username {
+        text-transform: uppercase;
+    }
+    /* Establece el tamaño máximo para todas las imágenes */
+    .img-fluid {
+    max-width: 100%;
+    height: auto;
+    }
+
+    /* Controla cómo se ajusta la imagen dentro de su contenedor */
+    .foto-inmueble {
+    width: 300px; /* Ancho deseado */
+    height: 300px; /* Altura deseada */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área especificada */
+    }
+    
+</style>
+<script>
+    var successMessage = document.getElementById("success-message");
+    setTimeout(function() {
+        successMessage.style.display = "none";
+    }, 5000);
+</script>
+{% endblock content %}

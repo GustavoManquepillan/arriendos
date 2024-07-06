@@ -1,0 +1,21 @@
+Nombre: Departamento 2
+Descripción:
+    M2 Construidos: 120.0
+    Número de Baños: 2
+    Número de Habitaciones: 4
+    Dirección: Calle Lautaro #743
+
+Nombre: Departamento 1
+Descripción:
+    M2 Construidos: 75.0
+    Número de Baños: 1
+    Número de Habitaciones: 3
+    Dirección: Calle Lautaro #742
+
+Nombre: Casa Admin
+Descripción:
+    M2 Construidos: 120.0
+    Número de Baños: 2
+    Número de Habitaciones: 4
+    Dirección: Puquiñe, Km14, Lanco
+

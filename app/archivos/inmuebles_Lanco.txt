@@ -1,0 +1,7 @@
+Nombre: Casa Admin
+Descripción:
+         M2 Construidos: 120.0
+         Número de Baños: 2
+         Número de Habitaciones: 4
+         Dirección: Puquiñe, Km14, Lanco
+

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    {% if user.is_authenticated %}
+        
+           
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h1>Mensajes recibidos</h1>
+                {% for m in messages %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Inmueble:</strong> {{ m.nombre_inmueble }}</li>
+                            <li class="list-group-item"><strong>Correo:</strong> {{ m.correo }}</li>
+                            <li class="list-group-item"><strong>Nombre remitente:</strong> {{ m.nombre }}</li>
+                            <li class="list-group-item"><strong>Mensaje:</strong> {{ m.mensaje }}</li>
+                        </ul>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="text-center pb-4">
+                    <a href="{% url 'logout' %}" class="btn btn-primary mt-3">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>             
+        <div class="text-center pt-3 pb-4">
+            <a href="{% url 'get_inmuebles' %}" class="btn btn-primary mt-3">Volver al Bienvenido</a> <!-- Corregido el inicio de la etiqueta 'a' -->
+        </div>   
+    {% else %} 
+        <h1>Debes iniciar sesión para acceder al contenido</h1>
+        <a href="{% url 'login_url' %}" class="btn btn-primary mt-3">Iniciar sesión</a>
+    {% endif %}
+</div>
+
+<style>
+    .username {
+        text-transform: uppercase;
+    }
+    .list-group-item {
+        text-align: left;
+    }
+</style>
+{% endblock content %}

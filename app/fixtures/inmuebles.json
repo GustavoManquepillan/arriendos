@@ -1,0 +1,38 @@
+[
+    {
+        "model": "app.inmueble", 
+        "pk": 7, 
+        "fields": {"id_usuario": 1, 
+        "id_tipo_inmueble": 2, 
+        "id_comuna": 234, "id_region": 12, 
+        "nombre_inmueble": "Casa Admin", 
+        "m2_construido": 120.0, 
+        "numero_banos": 2, 
+        "numero_hab": 4, 
+        "direccion": "Puquiñe, Km14, Lanco"}}, 
+        
+    {
+        "model": "app.inmueble", 
+        "pk": 8, 
+        "fields": {"id_usuario": 3, 
+        "id_tipo_inmueble": 1, 
+        "id_comuna": 200, 
+        "id_region": 11, 
+        "nombre_inmueble": "Departamento 1", 
+        "m2_construido": 75.0, 
+        "numero_banos": 1, 
+        "numero_hab": 3, 
+        "direccion": "Calle Lautaro #742"}}, 
+        
+    {
+        "model": "app.inmueble", 
+        "pk": 9, 
+        "fields": {"id_usuario": 3, 
+        "id_tipo_inmueble": 1, 
+        "id_comuna": 200, 
+        "id_region": 11, 
+        "nombre_inmueble": "Departamento 2", 
+        "m2_construido": 120.0, 
+        "numero_banos": 2, 
+        "numero_hab": 4, 
+        "direccion": "Calle Lautaro #743"}}]

@@ -1,0 +1,130 @@
+[
+    {
+        "model": "app.Region",
+        "pk": 1,
+        "fields": {
+            "id": 1,
+            "region": "Arica y Parinacota"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 2,
+        "fields": {
+            "id": 2,
+            "region": "Tarapacá"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 3,
+        "fields": {
+            "id": 3,
+            "region": "Antofagasta"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 4,
+        "fields": {
+            "id": 4,
+            "region": "Atacama"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 5,
+        "fields": {
+            "id": 5,
+            "region": "Coquimbo"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 6,
+        "fields": {
+            "id": 6,
+            "region": "Valparaíso"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 7,
+        "fields": {
+            "id": 7,
+            "region": "Región del Libertador Gral. Bernardo O’Higgins"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 8,
+        "fields": {
+            "id": 8,
+            "region": "Región del Maule"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 9,
+        "fields": {
+            "id": 9,
+            "region": "Región de Ñuble"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 10,
+        "fields": {
+            "id": 10,
+            "region": "Región del Biobío"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 11,
+        "fields": {
+            "id": 11,
+            "region": "Región de la Araucanía"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 12,
+        "fields": {
+            "id": 12,
+            "region": "Región de Los Ríos"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 13,
+        "fields": {
+            "id": 13,
+            "region": "Región de Los Lagos"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 14,
+        "fields": {
+            "id": 14,
+            "region": "Región Aisén del Gral. Carlos Ibáñez del Campo"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 15,
+        "fields": {
+            "id": 15,
+            "region": "Región de Magallanes y de la Antártica Chilena"
+        }
+    },
+    {
+        "model": "app.Region",
+        "pk": 16,
+        "fields": {
+            "id": 16,
+            "region": "Región Metropolitana de Santiago"
+        }
+    }
+]

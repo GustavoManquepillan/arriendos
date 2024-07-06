@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center">Actualizar Inmueble</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_tipo_inmueble">Tipo de Inmueble:</label>
+            {{ form.id_tipo_inmueble }}
+        </div>
+        <div class="form-group">
+            <label for="id_comuna">Comuna:</label>
+            {{ form.id_comuna }}
+        </div>
+        <div class="form-group">
+            <label for="id_region">Región:</label>
+            {{ form.id_region }}
+        </div>
+        <div class="form-group">
+            <label for="nombre_inmueble">Nombre del Inmueble:</label>
+            {{ form.nombre_inmueble }}
+        </div>
+        <div class="form-group">
+            <label for="m2_construido">Metros Cuadrados Construidos:</label>
+            {{ form.m2_construido }}
+        </div>
+        <div class="form-group">
+            <label for="numero_banos">Número de Baños:</label>
+            {{ form.numero_banos }}
+        </div>
+        <div class="form-group">
+            <label for="numero_hab">Número de Habitaciones:</label>
+            {{ form.numero_hab }}
+        </div>
+        <div class="form-group">
+            <label for="direccion">Dirección:</label>
+            {{ form.direccion }}
+        </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción:</label>
+            {{ form.descripcion }}
+        </div>
+        <div class="form-group">
+            <label for="imagen_url">Imagen del Inmueble:</label>
+            {{ form.imagen_url }}
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>  
+        </div>
+        <div class="form-group">
+            <a href="{% url 'get_inmuebles' %}" class="btn btn-primary">Volver</a>
+        </div>
+        
+    </form>
+    
+</div>
+
+<style>
+
+    .form-group {
+        text-align: center;
+        margin-bottom: 20px; /* Agrega un espacio entre cada campo */
+    }
+
+    .form-group label {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .form-group input, .form-group textarea {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 300px; /* Ajusta el tamaño máximo si es necesario */
+        text-align: center; /* Centra el texto dentro del campo de entrada */
+    }
+
+    button {
+        margin-top: 20px; /* Ajusta el espacio entre el formulario y el botón */
+    }
+</style>
+
+{% endblock content %}

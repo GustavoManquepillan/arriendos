@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar Inmueble{% endblock title %}
+
+{% block content %}
+<div class="container" style="background-color: #eeeff4;">
+    <div class="row justify-content-center align-items-center">
+        <div class="col-6 text-center pt-4 pb-4">
+            <h2>Eliminar Inmueble</h2>
+            <p>¿Estás seguro de que deseas eliminar el inmueble "{{ inmueble.nombre_inmueble }}"?</p>
+            
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                <a href="{% url 'get_inmuebles' %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>        
+    </div>
+</div>
+{% endblock content %}

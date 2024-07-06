@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: arriendos-app
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn arriendos.wsgi"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: arriendos.settings
+      - key: SECRET_KEY
+        value: "django-insecure-ron^9*6de25(%r&zrl1i(c205i#^62r-2ab=mz17v6^)zs3_pi"

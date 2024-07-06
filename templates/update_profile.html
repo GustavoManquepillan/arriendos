@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Actualizar perfil <span class="username">{{ user.get_username }}</span></h1>
+            <form method="POST">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.tipo_usuario.label_tag }}
+                    {{ form.tipo_usuario }}
+                </div>
+                <div class="form-group">
+                    {{ form.rut.label_tag }}
+                    {{ form.rut }}
+                </div>
+                <div class="form-group">
+                    {{ form.direccion.label_tag }}
+                    {{ form.direccion }}
+                </div>
+                <div class="form-group">
+                    {{ form.ciudad.label_tag }}
+                    {{ form.ciudad }}
+                </div>
+                <div class="form-group">
+                    {{ form.telefono.label_tag }}
+                    {{ form.telefono }}
+                </div>
+                <div class="form-group">
+                    {{ form.correo.label_tag }}
+                    {{ form.correo }}
+                </div>
+                <div class="container pt-3 pb-3">
+                    <button type="submit" class="btn btn-primary">Actualizar Perfil</button>
+                    <a href="{% url 'profile' %}" class="btn btn-primary">Volver</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-group {
+        text-align: center;
+    }
+
+    .form-group label {
+        display: block;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .form-group input,
+    .form-group select {
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 300px; /* Ajusta el tamaño máximo si es necesario */
+        text-align: center; /* Centro el texto dentro del campo de entrada */
+    }
+
+    .username {
+        text-transform: uppercase;
+    }
+</style>
+{% endblock content %}

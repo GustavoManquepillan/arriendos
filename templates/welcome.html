@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% block title %}Bienvenido a Inmobiliario{% endblock title %}
+
+{% block content %}
+<div class="container pb-4 alert alert-success text-center" role="alert" style="background-color: #eeeff4;">
+    <div class="container py-5 bg-light text-center">
+        <h2 class="alert-heading">¡Bienvenido, <span class="username">{{ user.get_username }}</span> a tus Inmuebles!</h2>
+        <p id="success-message">Te has autenticado exitosamente.</p>
+        <hr class="my-4">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-center">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a type="button" class="btn btn-primary me-2" aria-current="page" href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+            {% else %}
+                <li class="nav-item me-2">
+                    <a type="button" class="btn btn-primary" aria-current="page" href="{% url 'login_url' %}">Iniciar sesión</a>
+                </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+{% if user.is_authenticated %}
+    {% if perfil.tipo_usuario.tipo == 'Arrendador' %}
+        <h1 class="text-center">Tus Inmuebles</h1>
+        <div class="text-center mt-3 pb-3">
+            <a href="{% url 'register_inmueble' %}" class="btn btn-primary">Agregar inmueble</a>
+        </div>
+        <div class="row mb-3 justify-content-center">
+            {% for i in inmuebles %}
+            <div class="col col-3 text-center">
+                <div class="card mb-3">
+                    <div class="row g-0">
+                        <div class="col-12 text-center">
+                            {% if i.imagen_url %}
+                                <img src="{{ i.imagen_url }}" class="foto-inmueble img-fluid rounded-start" alt="Imagen Inmueble">
+                            {% else %}
+                                <p>No hay imagen disponible</p>
+                            {% endif %}
+                        </div>
+                        <div class="col-12">
+                            <div class="card-body">
+                                <h5 class="card-title text-center">{{ i.nombre_inmueble }}, {{ i.id_tipo_inmueble }}</h5>
+                                <p class="card-text text-center">{{ i.descripcion }}</p>
+                                <ul class="list-group list-group-flush text-left">
+                                    <li class="list-group-item">Dirección: {{ i.direccion }}, {{ i.id_comuna }}, {{ i.id_region }}</li>
+                                    <li class="list-group-item">Construcción: {{ i.m2_construido }} m2</li>
+                                    <li class="list-group-item">N° hab: {{ i.numero_hab }}</li>
+                                    <li class="list-group-item">N° baños: {{ i.numero_banos }}</li>
+                                </ul>
+                                <div class="text-center mt-3">
+                                    <a href="{% url 'update_inmueble' i.pk %}" class="btn btn-primary">Actualizar Inmueble</a>
+                                    
+                                </div>
+                                <div class="text-center mt-3">
+                                    <a href="{% url 'delete_inmueble' i.pk %}" class="btn btn-danger">Eliminar Inmueble</a>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% else %}
+    
+{% endif %}
+</div>
+
+<style>
+    .username {
+        text-transform: uppercase;
+    }
+    
+    /* Establece el tamaño máximo para todas las imágenes */
+    .img-fluid {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* Controla cómo se ajusta la imagen dentro de su contenedor */
+    .foto-inmueble {
+        width: 300px; /* Ancho deseado */
+        height: 300px; /* Altura deseada */
+        object-fit: cover; /* Ajusta la imagen para cubrir el área especificada */
+    }
+</style>
+<script>
+    var successMessage = document.getElementById("success-message");
+    setTimeout(function() {
+        successMessage.style.display = "none";
+    }, 5000);
+</script>
+{% endblock content %}

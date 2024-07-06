@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container text-center">
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h1>Perfil <span class="username">{{ user.get_username }}</span></h1>
+            {% if not perfil %}
+                <h3>No se encontró un perfil</h3>
+                <a href="{% url 'register_profile' %}" class="btn btn-primary mx-2">Crear Perfil</a>
+            {% else %}
+                <ul class="list-group">
+                    <li class="list-group-item">Nombre: {{ user.first_name }} {{ user.last_name }}</li>
+                    <li class="list-group-item">Tipo: {{ perfil.tipo_usuario }}</li>
+                    <li class="list-group-item">RUT: {{ perfil.rut }}</li>
+                    <li class="list-group-item">Dirección: {{ perfil.direccion }}</li>
+                    <li class="list-group-item">Teléfono: {{ perfil.telefono }}</li>
+                    <li class="list-group-item">Correo: {{ perfil.correo }}</li>
+                </ul>
+                <div class="pt-3 pb-3">
+                <a href="{% url 'update_profile' %}" class="btn btn-primary mt-3">Actualizar Perfil</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .list-group-item {
+        text-align: center;
+    }
+
+    .username {
+    text-transform: uppercase;
+    }
+</style>
+{% endblock content %}
