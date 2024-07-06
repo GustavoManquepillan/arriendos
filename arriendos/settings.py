@@ -92,7 +92,7 @@ DATABASES = {
 # }
     'default': dj_database_url.config(
     #     # Replace this value with your local database's connection string.
-        default='postgresql://postgres:postgres@localhost:5432/mysite',
+        default='postgresql://arriendos_db_user:6ijS8ndnxIyw8DKr3jKw3y19AVmHbbaQ@dpg-cq4ge9dds78s73cjp3pg-a/arriendos_db',
         conn_max_age=600
     )
 }
